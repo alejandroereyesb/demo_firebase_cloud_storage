@@ -1,7 +1,7 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  //Copy your firebase configuration
-  };
+ 
+};
   
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -15,7 +15,7 @@ function uploadFile() {
     console.log(file);
 
     //dynamically set reference to the file name
-    var thisRef = storageRef.child(file.name);
+    var thisRef = storageRef.child(`images/${file.name}`);
 
     //put request upload file to firebase storage
     thisRef.put(file).then(function (snapshot) {
@@ -30,7 +30,7 @@ function getFileUrl(filename) {
     var storage = firebase.storage().ref();
 
     //get file url
-    storage
+    storage.child(filename)
         .getDownloadURL()
         .then(function (url) {
             console.log(url);
