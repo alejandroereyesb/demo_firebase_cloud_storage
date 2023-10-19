@@ -1,7 +1,8 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
- 
+
 };
+
   
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -10,6 +11,7 @@ function uploadFile() {
 
     // Created a Storage Reference with root dir
     var storageRef = firebase.storage().ref();
+    console.log("storage ref", storageRef);
     // Get the file from DOM
     var file = document.getElementById("files").files[0];
     console.log(file);
@@ -45,12 +47,14 @@ function getAllImages(){
       // Since you mentioned your images are in a folder,
     // we'll create a Reference to that folder:
     //var storageRef = firebase.storage().ref("your_folder");
-    var storageRef = firebase.storage().ref();
+    var storageRef = firebase.storage().ref('/images');
 
     // Now we get the references of these images
     storageRef.listAll().then(function(result) {
       result.items.forEach(function(imageRef) {
+        console.log(imageRef);
         // And finally display them
+        console.log(imageRef);
         displayImage(imageRef);
       });
     }).catch(function(error) {
@@ -63,7 +67,7 @@ function getAllImages(){
         // TODO: Display the image on the UI
         console.log(url);
         const result = document.getElementById("result");
-        result.innerHTML+=`<img src=${url}>`
+        result.innerHTML+=`<img src=${url} width=450px>`
       }).catch(function(error) {
         // Handle any errors
         console.log(error);
