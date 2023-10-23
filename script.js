@@ -1,11 +1,6 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDxqN2qdIqvIf0dOnmDC3kToRDOl2fPxWw",
-  authDomain: "fir-59e2b.firebaseapp.com",
-  projectId: "fir-59e2b",
-  storageBucket: "fir-59e2b.appspot.com",
-  messagingSenderId: "510499075537",
-  appId: "1:510499075537:web:d1f421b03413de0f7cdcf0"
+
 };
   
 // Initialize Firebase
